@@ -1,0 +1,119 @@
+image: registry.sporthorses24.com/developers/katon
+
+stages:
+  - linting
+  - start
+  - test
+  - stop
+  - deploy
+
+before_script:
+  - cd ./scripts
+  - yarn install --frozen-lockfile
+  - cd ..
+
+lint:
+  stage: linting
+  script:
+    - ./run prettier:check
+    - ./run nuxt:lint
+  tags:
+    - docker
+
+histoire:
+  stage: deploy
+  services:
+    - docker:dind
+  script:
+    - ./run histoire:deploy
+  only:
+    - main
+  tags:
+    - dind
+
+histoire_manual:
+  stage: deploy
+  services:
+    - docker:dind
+  script:
+    - ./run histoire:deploy:manual
+  when: manual
+  tags:
+    - dind
+
+nuxt:
+  stage: deploy
+  services:
+    - docker:dind
+  script:
+    - ./run nuxt:deploy
+  only:
+    - main
+  tags:
+    - dind
+
+nuxt_manual:
+  stage: deploy
+  services:
+    - docker:dind
+  script:
+    - ./run nuxt:deploy:manual
+  when: manual
+  tags:
+    - dind
+
+
+
+# app_start:
+#   stage: start
+#   script:
+#     - echo $PATH
+#     # Make sure the project is completely cleaned
+#     - ./run docker:down
+#     - ./run docker:start
+#     # Useful in case something goes wrong
+#     - ./run logs:php
+#   tags:
+#     - docker
+
+# lighthouse_test:
+#   stage: test
+#   script:
+#     - ./run nuxt:lighthouse
+#   tags:
+#     - docker
+
+# code_style:
+#   stage: test
+#   script:
+#     - ./run laravel:pint
+#   tags:
+#     - host
+
+# laravel_test:
+#   stage: test
+#   script:
+#     - ./run docker:laravel:check
+#     - ./run laravel:seed:json
+#     - ./run laravel:test
+#   tags:
+#     - docker
+
+# cypress_test:
+#   stage: test
+#   script:
+#     - ./run test:e2e
+#   tags:
+#     - docker
+#   artifacts:
+#     paths:
+#       - ./.artifacts/screenshots
+#       - ./.artifacts/videos
+
+# app_stop:
+#   stage: stop
+#   script:
+#     - ./run docker:down
+#   tags:
+#     - docker
+#   when: always

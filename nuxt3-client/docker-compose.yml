@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  nuxt:
+    build:
+      context: ./nuxt3-client
+    healthcheck:
+      test: ['CMD', 'curl', '-f', 'http://localhost:3000']
+      timeout: 10s
+      retries: 5

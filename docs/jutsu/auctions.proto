@@ -1,0 +1,69 @@
+// Updating auction data on jutsu
+syntax = "proto3";
+
+package auctionservice;
+
+import "google/protobuf/timestamp.proto";
+
+// AuctionService defines the gRPC service for managing auction data.
+service AuctionService {
+  // AddAuction creates a new auction with the provided details.
+  rpc AddAuction(AddAuctionRequest) returns (AddAuctionResponse);
+
+  // UpdateAuction updates the details of an existing auction.
+  rpc UpdateAuction(UpdateAuctionRequest) returns (UpdateAuctionResponse);
+
+  // DeleteAuction removes an auction from the system.
+  rpc DeleteAuction(DeleteAuctionRequest) returns (DeleteAuctionResponse);
+}
+
+// Request and response messages
+
+
+// AddAuctionRequest is used to create a new auction.
+message AddAuctionRequest {
+  google.protobuf.Timestamp start = 1; // Desired start time of the auction
+  google.protobuf.Timestamp end = 2; // Desired end time of the auction
+  bool has_bidup = 3; // Flag to enable bid-up option
+  int32 bidup_interval = 4; // Interval for bid-up, if enabled
+  double opening_price = 5; // Initial price for the auction
+  bool differ_price = 6; // Flag for different price strategy
+  bool active = 7; // Flag to make the auction active upon creation
+}
+
+// AddAuctionResponse is the response for a request to add a new auction.
+message AddAuctionResponse {
+  bool success = 1; // Indicates if the operation was successful
+  string message = 2; // Additional information or error message
+  int64 auction_id = 3; // ID of the newly created auction
+}
+
+// UpdateAuctionRequest is used to update the details of an existing auction.
+message UpdateAuctionRequest {
+  int64 auction_id = 1; // Unique identifier of the auction to be updated
+  google.protobuf.Timestamp start = 2; // Desired start time of the auction
+  google.protobuf.Timestamp end = 3; // Desired end time of the auction
+  bool has_bidup = 4; // Flag to enable bid-up option
+  int32 bidup_interval = 5; // Interval for bid-up, if enabled
+  double opening_price = 6; // Initial price for the auction
+  bool differ_price = 7; // Flag for different price strategy
+  bool active = 8; // Flag to make the auction active upon creation
+}
+
+
+// UpdateAuctionResponse is the response for a request to update an auction.
+message UpdateAuctionResponse {
+  bool success = 1; // Indicates if the update was successful
+  string message = 2; // Additional information or error message
+}
+
+// DeleteAuctionRequest is the format for a request to delete an auction.
+message DeleteAuctionRequest {
+  int64 auction_id = 1; // Unique identifier of the auction to be deleted
+}
+
+// DeleteAuctionResponse is the response for a request to delete an auction.
+message DeleteAuctionResponse {
+  bool success = 1; // Indicates if the deletion was successful
+  string message = 2; // Additional information or error message
+}

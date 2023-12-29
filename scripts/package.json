@@ -1,0 +1,50 @@
+{
+  "name": "katon-scripts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest",
+    "e2e": "node -r ts-node/register -r tsconfig-paths/register ./selenium/src/test-orchestration/selenium.ts"
+  },
+  "dependencies": {
+    "@types/bluebird": "^3.5.41",
+    "@types/glob": "^8.1.0",
+    "@types/ioredis": "^5.0.0",
+    "@types/jest": "^29.5.7",
+    "@types/redis": "^4.0.11",
+    "@types/selenium-webdriver": "^4.1.10",
+    "@types/uuid": "^9.0.1",
+    "@types/wait-on": "^5.3.1",
+    "@vue/compiler-sfc": "^3.3.7",
+    "aws-sdk": "^2.1340.0",
+    "bluebird": "^3.7.2",
+    "cheerio": "^1.0.0-rc.12",
+    "cypress": "^12.6.0",
+    "dotenv": "^16.3.1",
+    "glob": "^10.2.2",
+    "ioredis": "^5.3.2",
+    "jest": "^29.7.0",
+    "lodash": "^4.17.21",
+    "minimatch": "^9.0.3",
+    "postcss": "^8.4.31",
+    "postcss-selector-parser": "^6.0.13",
+    "selenium-webdriver": "^4.8.0",
+    "ts-jest": "^29.1.1",
+    "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.1.2",
+    "typescript": "^4.9.4",
+    "uuid": "^9.0.0",
+    "wait-on": "^7.0.1"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.192",
+    "@types/minimist": "^1.2.2",
+    "colors": "^1.4.0",
+    "minimist": "^1.2.8",
+    "minimist-options": "^4.1.0",
+    "prettier": "^3.0.0",
+    "redis": "^4.5.1"
+  }
+}

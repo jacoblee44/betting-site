@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  horse24.test:
+    build:
+      context: .
+      dockerfile: docker/nginx/Dockerfile
+    restart: always
+    depends_on:
+      - php
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+
+  maildev:
+    image: djfarrelly/maildev
+
+networks:
+  default:
+    name: ${DOCKER_PROJECT}-network

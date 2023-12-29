@@ -1,0 +1,31 @@
+version: '3'
+services:
+  php:
+    build:
+      context: ./
+      dockerfile: laravel-api/Dockerfile
+      args:
+        USER_ID: ${LOCAL_USER_ID}
+    environment:
+      LOCAL_USER_ID: ${LOCAL_USER_ID}
+      INITIAL_SETUP: ${INITIAL_SETUP}
+    restart: unless-stopped
+    tty: true
+  db:
+    image: postgres:15.3-alpine
+    restart: unless-stopped
+    tty: true
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secure
+    volumes:
+      - pgdata:/var/lib/postgresql/data/
+  redis-laravel-cache:
+    image: redis:7-alpine
+    restart: unless-stopped
+    tty: true
+
+volumes:
+  pgdata:
+    driver: local

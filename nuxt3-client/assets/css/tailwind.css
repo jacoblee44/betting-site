@@ -1,0 +1,306 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  h1 {
+    @apply text-h1 leading-9 font-bold tracking-0.84;
+  }
+
+  .h1 {
+    @apply text-h1 leading-9 font-bold tracking-0.84;
+  }
+
+  h2 {
+    @apply text-2xl leading-8 font-bold tracking-0.72;
+  }
+
+  .h3-bold {
+    @apply text-xl leading-6 font-bold tracking-0.6;
+  }
+
+  .h3-regular {
+    @apply text-xl leading-7 tracking-0.6;
+  }
+
+  h4 {
+    @apply text-base leading-22px font-bold tracking-0.48;
+  }
+
+  .h4-regular {
+    @apply text-base leading-22px tracking-0.48;
+  }
+
+  .h5-bold {
+    @apply text-sm leading-19px font-bold tracking-0.63;
+  }
+
+  .h5-regular {
+    @apply text-sm leading-19px tracking-0.63;
+  }
+
+  /* SPACE X AND SPACE Y */
+  .space-x-xs {
+    @apply space-x-5px md:space-x-10px;
+  }
+
+  .space-y-xs {
+    @apply space-y-5px md:space-y-10px;
+  }
+
+  .space-x-sm {
+    @apply space-x-10px md:space-x-5;
+  }
+
+  .space-y-sm {
+    @apply space-y-10px md:space-y-5;
+  }
+
+  .space-x-md {
+    @apply space-x-5 md:space-x-30px;
+  }
+
+  .space-y-md {
+    @apply space-y-5 md:space-y-30px;
+  }
+
+  .space-x-lg {
+    @apply space-x-30px md:space-x-60px;
+  }
+
+  .space-y-lg {
+    @apply space-y-30px md:space-y-60px;
+  }
+
+  /* PADDING X AND PADDING Y */
+  .px-xs {
+    @apply px-5px md:px-10px;
+  }
+
+  .py-xs {
+    @apply py-5px md:py-10px;
+  }
+
+  .px-sm {
+    @apply px-10px md:px-5;
+  }
+
+  .py-sm {
+    @apply py-10px md:py-5;
+  }
+
+  .px-md {
+    @apply px-5 md:px-30px;
+  }
+
+  .py-md {
+    @apply py-5 md:py-30px;
+  }
+
+  .px-lg {
+    @apply px-30px md:px-60px;
+  }
+
+  .py-lg {
+    @apply py-30px md:py-60px;
+  }
+
+  /* MARGIN X AND MARGIN Y */
+  .mx-xs {
+    @apply mx-5px md:mx-10px;
+  }
+
+  .my-xs {
+    @apply my-5px md:my-10px;
+  }
+
+  .mx-sm {
+    @apply mx-10px md:mx-5;
+  }
+
+  .my-sm {
+    @apply my-10px md:my-5;
+  }
+
+  .mx-md {
+    @apply mx-5 md:mx-30px;
+  }
+
+  .my-md {
+    @apply my-5 md:my-30px;
+  }
+
+  .mx-lg {
+    @apply mx-30px md:mx-60px;
+  }
+
+  .my-lg {
+    @apply my-30px md:my-60px;
+  }
+
+  /* PADDING L AND PADDING R */
+  .pl-xs {
+    @apply pl-5px md:pl-10px;
+  }
+
+  .pr-xs {
+    @apply pr-5px md:pr-10px;
+  }
+
+  .pl-sm {
+    @apply pl-10px md:pl-5;
+  }
+
+  .pr-sm {
+    @apply pr-10px md:pr-5;
+  }
+
+  .pl-md {
+    @apply pl-5 md:pl-30px;
+  }
+
+  .pr-md {
+    @apply pr-5 md:pr-30px;
+  }
+
+  .pl-lg {
+    @apply pl-30px md:pl-60px;
+  }
+
+  .pr-lg {
+    @apply pr-30px md:pr-60px;
+  }
+
+  /* MARGIN L AND MARGIN R */
+  .ml-xs {
+    @apply ml-5px md:ml-10px;
+  }
+
+  .mr-xs {
+    @apply mr-5px md:mr-10px;
+  }
+
+  .ml-sm {
+    @apply ml-10px md:ml-5;
+  }
+
+  .mr-sm {
+    @apply mr-10px md:mr-5;
+  }
+
+  .ml-md {
+    @apply ml-5 md:ml-30px;
+  }
+
+  .mr-md {
+    @apply mr-5 md:mr-30px;
+  }
+
+  .ml-lg {
+    @apply ml-30px md:ml-60px;
+  }
+
+  .mr-lg {
+    @apply mr-30px md:mr-60px;
+  }
+
+  /* PADDING T AND PADDING B */
+  .pt-xs {
+    @apply pt-5px md:pt-10px;
+  }
+
+  .pb-xs {
+    @apply pb-5px md:pb-10px;
+  }
+
+  .pt-sm {
+    @apply pt-10px md:pt-5;
+  }
+
+  .pb-sm {
+    @apply pb-10px md:pb-5;
+  }
+
+  .pt-md {
+    @apply pt-5 md:pt-30px;
+  }
+
+  .pb-md {
+    @apply pb-5 md:pb-30px;
+  }
+
+  .pt-lg {
+    @apply pt-30px md:pt-60px;
+  }
+
+  .pb-lg {
+    @apply pb-30px md:pb-60px;
+  }
+
+  /* MARGIN T AND MARGIN B */
+  .mt-xs {
+    @apply mt-5px md:mt-10px;
+  }
+
+  .mb-xs {
+    @apply mb-5px md:mb-10px;
+  }
+
+  .mt-sm {
+    @apply mt-10px md:mt-5;
+  }
+
+  .mb-sm {
+    @apply mb-10px md:mb-5;
+  }
+
+  .mt-md {
+    @apply mt-5 md:mt-30px;
+  }
+
+  .mb-md {
+    @apply mb-5 md:mb-30px;
+  }
+
+  .mt-lg {
+    @apply mt-30px md:mt-60px;
+  }
+
+  .mb-lg {
+    @apply mb-30px md:mb-60px;
+  }
+
+  /* PADDING XY */
+  .p-xs {
+    @apply p-5px md:p-10px;
+  }
+
+  .p-sm {
+    @apply p-10px md:p-5;
+  }
+
+  .p-md {
+    @apply p-5 md:p-30px;
+  }
+
+  .p-lg {
+    @apply p-30px md:p-60px;
+  }
+
+  /* MARGIN XY */
+  .m-xs {
+    @apply m-5px md:m-10px;
+  }
+
+  .m-sm {
+    @apply m-10px md:m-5;
+  }
+
+  .m-md {
+    @apply m-5 md:m-30px;
+  }
+
+  .m-lg {
+    @apply m-30px md:m-60px;
+  }
+}

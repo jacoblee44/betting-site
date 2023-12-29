@@ -1,0 +1,5 @@
+- [ ] All the automatic checks are passing
+- [ ] The branch is named correctly (branch-naming-convention.md)
+- [ ] The MR has a descriptive title
+- [ ] The changes are reviewed to ensure that the coding conventions are followed
+- [ ] The latest master is merged into the branch

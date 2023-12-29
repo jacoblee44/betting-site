@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+cd scripts/
+yarn install
+node -r ts-node/register -r tsconfig-paths/register meta/run.ts $@

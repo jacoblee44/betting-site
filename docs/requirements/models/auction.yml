@@ -1,0 +1,9 @@
+h24-auction:
+  name: Auction
+  properties:
+    title:
+      type: String
+      description: This will be displayed as headline on the auction card and on the auction details page.
+    description:
+      type: String
+      description: A block of text with details about the auction to be displayed to users.

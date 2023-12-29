@@ -1,0 +1,7 @@
+services:
+  horse24.test:
+    ports:
+      - '${APP_PORT:-80}:80'
+  php:
+    volumes:
+      - ./laravel-api:/var/www/html/

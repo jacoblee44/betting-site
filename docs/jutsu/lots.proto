@@ -1,0 +1,102 @@
+syntax = "proto3";
+
+package lotservice;
+
+import "google/protobuf/timestamp.proto";
+
+// LotService defines the gRPC service for managing lot data.
+service LotService {
+  // AddLot creates a new lot with the provided details.
+  rpc AddLot(AddLotRequest) returns (AddLotResponse);
+
+  // UpdateLot updates the details of an existing lot.
+  rpc UpdateLot(UpdateLotRequest) returns (UpdateLotResponse);
+
+  // DeactivateLot withdraws a lot from the auction.
+  rpc DeactivateLot(DeactivateLotRequest) returns (DeactivateLotResponse);
+
+  // ActivateLot reverts the withdrawal of a lot.
+  rpc ActivateLot(ActivateLotRequest) returns (ActivateLotResponse);
+
+  rpc GetRealTimeLotData(GetRealTimeLotDataRequest) returns (GetRealTimeLotDataResponse);
+}
+
+// Request and response messages
+
+// AddLotRequest is used to create a new lot.
+message AddLotRequest {
+  int64 auction_id = 1; // ID of the auction the lot is part of
+  double estimated_price = 2; // Estimated price of the lot
+  double selling_price = 3; // Selling price of the lot
+  bool is_withdrawn = 4; // Flag indicating if the lot is withdrawn
+}
+
+// AddLotResponse is the response for a request to add a new lot.
+message AddLotResponse {
+  bool success = 1; // Indicates if the operation was successful
+  string message = 2; // Additional information or error message
+  int64 lot_id = 3; // ID of the newly created lot
+}
+
+// UpdateLotRequest is used to update the details of an existing lot.
+message UpdateLotRequest {
+  int64 lot_id = 1; // Unique identifier of the lot to be updated
+  int64 auction_id = 2; // ID of the auction the lot is part of
+  double estimated_price = 3; // Estimated price of the lot
+  double selling_price = 4; // Selling price of the lot
+  bool is_withdrawn = 5; // Flag indicating if the lot is withdrawn
+}
+
+// UpdateLotResponse is the response for a request to update a lot.
+message UpdateLotResponse {
+  bool success = 1; // Indicates if the update was successful
+  string message = 2; // Additional information or error message
+}
+
+// DeleteLotRequest is the format for a request to delete a lot.
+message DeleteLotRequest {
+  int64 lot_id = 1; // Unique identifier of the lot to be deleted
+}
+
+// DeleteLotResponse is the response for a request to delete a lot.
+message DeleteLotResponse {
+  bool success = 1; // Indicates if the deletion was successful
+  string message = 2; // Additional information or error message
+}
+
+// DeactivateLotRequest is used to withdraw a lot from the auction.
+message DeactivateLotRequest {
+  int64 lot_id = 1; // Unique identifier of the lot to be withdrawn
+}
+
+// DeactivateLotResponse is the response for a request to withdraw a lot.
+message DeactivateLotResponse {
+  bool success = 1; // Indicates if the withdrawal was successful
+  string message = 2; // Additional information or error message
+}
+
+// ActivateLotRequest is used to revert the withdrawal of a lot.
+message ActivateLotRequest {
+  int64 lot_id = 1; // Unique identifier of the lot whose withdrawal is to be undone
+}
+
+// ActivateLotResponse is the response for a request to revert a lot withdrawal.
+message ActivateLotResponse {
+  bool success = 1; // Indicates if the reversal was successful
+  string message = 2; // Additional information or error message
+}
+
+// GetRealTimeLotDataRequest is the request for real-time data of a lot.
+message GetRealTimeLotDataRequest {
+  int64 lot_id = 1; // Unique identifier of the lot
+}
+
+// GetRealTimeLotDataResponse is the response with real-time data of a lot.
+message GetRealTimeLotDataResponse {
+  int64 current_bids_count = 1; // Total number of bids placed so far
+  int64 current_bidders_count = 2; // Number of distinct bidders participating
+  int64 bidups_count = 3; // Count of bid-ups
+  int64 winner_user_id = 4; // User ID of the auction winner
+  double selling_price = 5; // Selling price of the lot
+  bool is_active = 6; // Indicates if the lot is currently active for bidding
+}
